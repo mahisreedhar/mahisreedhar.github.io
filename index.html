@@ -548,6 +548,7 @@ section {
   position: relative;
   z-index: 2;
   width: 100%;
+  padding: 2.5rem 2rem;
 }
 
 .focal-cluster {
@@ -661,8 +662,8 @@ section {
 }
 
 .badge-stat-1 {
-  top: -18px;
-  left: -24px;
+  top: -36px;
+  left: -32px;
   background: var(--c-white);
 }
 .badge-stat-2 {
@@ -671,8 +672,8 @@ section {
   background: var(--c-amber);
 }
 .badge-stat-3 {
-  bottom: -18px;
-  left: 6%;
+  bottom: -34px;
+  left: -28px;
   background: var(--c-lime);
 }
 
@@ -839,7 +840,7 @@ section {
 }
 .icon-jagruti { background: var(--c-lime); }
 .icon-sensei { background: var(--c-amber); }
-.icon-sojara { background: var(--c-lilac); }
+.icon-sochara { background: var(--c-lilac); }
 .icon-pawpal { background: var(--c-sky); }
 
 .project-title {
@@ -1280,10 +1281,11 @@ footer {
   }
   .hero-right {
     justify-content: center;
+    padding: 2.5rem 1.5rem;
   }
   .focal-cluster {
     max-width: 440px;
-    margin: 10px auto;
+    margin: 15px auto;
   }
 
   .skills-grid {
@@ -1361,6 +1363,10 @@ footer {
 
   #hero {
     padding: 105px 0 60px;
+  }
+
+  .hero-right {
+    padding: 0;
   }
 
   /* Stat Badges Stacking on Mobile to Prevent Overflow */
@@ -1749,7 +1755,7 @@ footer {
         </div>
       </div>
 
-      <!-- Sojara -->
+      <!-- SOCHARA -->
       <div class="project-card">
         <div class="project-terminal-bar">
           <div class="frame-dots">
@@ -1757,26 +1763,28 @@ footer {
             <span class="frame-dot dot-yellow"></span>
             <span class="frame-dot dot-green"></span>
           </div>
-          <span class="project-terminal-path">~/projects/sojara-records</span>
+          <span class="project-terminal-path">~/projects/sochara-archive</span>
         </div>
         <div class="project-card-body">
           <div class="project-header-row">
-            <div class="project-icon icon-sojara">SJ</div>
+            <div class="project-icon icon-sochara">SC</div>
             <div>
-              <h3 class="project-title">Sojara</h3>
-              <span class="spec-badge spec-badge-lilac">Enterprise Management</span>
+              <h3 class="project-title">SOCHARA</h3>
+              <span class="spec-badge spec-badge-lilac">Public Health Archive</span>
             </div>
           </div>
           <p class="project-desc">
-            Digital records management system built for an NGO to replace paper-based workflows. Enables structured data entry, search, and reporting for field operations.
+            Self-contained public health resource portal embedded into SOCHARA’s WordPress site, streaming and deduplicating 4,796+ live records from the Internet Archive API. Engineered concurrent batch fetching, a JS Alias Dictionary for metadata normalization, and multi-select subject filtering.
           </p>
           <div class="project-tags">
-            <span class="spec-badge spec-badge-cream">React</span>
-            <span class="spec-badge spec-badge-cream">Node.js</span>
+            <span class="spec-badge spec-badge-cream">HTML5 / CSS3</span>
+            <span class="spec-badge spec-badge-cream">ES2020 JS</span>
+            <span class="spec-badge spec-badge-cream">Internet Archive API</span>
+            <span class="spec-badge spec-badge-cream">WordPress Embed</span>
           </div>
           <div class="project-footer">
-            <span class="spec-badge spec-badge-cream">NGO Tool</span>
-            <a href="#contact" class="project-link-btn">
+            <span class="spec-badge spec-badge-amber">4,796+ Resources</span>
+            <a href="mailto:mahisreedhar22@gmail.com?subject=Inquiry%20regarding%20SOCHARA%20Archive%20Portal" class="project-link-btn" title="Inquire about SOCHARA Archive Portal">
               Inquire Details
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
             </a>
