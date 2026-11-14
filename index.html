@@ -51,15 +51,15 @@
   --radius-md: 8px;
   --radius-lg: 12px;
 
-  /* Architectural Dot Grids (24px Spacing) */
-  --grid-dark-dots: radial-gradient(rgba(17, 17, 17, 0.12) 1.2px, transparent 1.2px);
-  --grid-light-dots: radial-gradient(rgba(248, 247, 244, 0.14) 1.5px, transparent 1.5px);
-  --grid-size: 24px 24px;
+  /* Prominent Architectural Dot Grids (22px Spacing, 1.6px Dots) */
+  --grid-dark-dots: radial-gradient(rgba(17, 17, 17, 0.20) 1.6px, transparent 1.6px);
+  --grid-light-dots: radial-gradient(rgba(248, 247, 244, 0.24) 1.6px, transparent 1.6px);
+  --grid-size: 22px 22px;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 72px;
 }
 
 body {
@@ -72,37 +72,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ── TOP VIEWPORT MULTI-SEGMENT ACCENT STRIP ── */
-#top-accent-strip {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 5px;
-  z-index: 10000;
-  display: flex;
-  background: repeating-linear-gradient(
-    90deg,
-    #FBBF24 0px,
-    #FBBF24 32px,
-    #BEF264 32px,
-    #BEF264 64px,
-    #F5F3EE 64px,
-    #F5F3EE 96px,
-    #FB7185 96px,
-    #FB7185 128px,
-    #111111 128px,
-    #111111 138px,
-    #38BDF8 138px,
-    #38BDF8 170px
-  );
-  border-bottom: 1px solid var(--c-ink);
-}
-
-/* ── SCROLL PROGRESS (Amber Monoline) ── */
+/* ── SCROLL PROGRESS (Amber Top Bar) ── */
 #scroll-progress {
   position: fixed;
-  top: 5px;
+  top: 0;
   left: 0;
   height: 3px;
   background: var(--c-amber);
@@ -110,6 +83,14 @@ body {
   width: 0%;
   transition: width 0.08s linear;
   border-bottom: 1px solid var(--c-ink);
+}
+
+/* ── GLOBAL CONTAINER SYSTEM (1240px Centered) ── */
+.section-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  width: 100%;
 }
 
 /* ── TACTILE NEOBRUTALIST SYSTEM COMPONENTS ── */
@@ -128,11 +109,11 @@ body {
 .spec-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.4rem;
   font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 600;
-  padding: 0.25rem 0.65rem;
+  padding: 0.3rem 0.7rem;
   border: var(--border-mid);
   border-radius: 6px;
   box-shadow: var(--shadow-sm);
@@ -167,10 +148,10 @@ body {
   justify-content: center;
   gap: 0.55rem;
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 700;
   text-decoration: none;
-  padding: 0.75rem 1.6rem;
+  padding: 0.85rem 1.8rem;
   border: var(--border-thick);
   border-radius: 6px;
   box-shadow: 4px 4px 0px var(--c-ink);
@@ -202,42 +183,39 @@ body {
   background: var(--c-white);
 }
 
-.btn-lime {
-  background: var(--c-lime);
-  color: var(--c-ink);
-}
-
 /* ── EDITORIAL SECTION HEADINGS ── */
 .section-meta-tag {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  margin-bottom: 0.65rem;
-  padding: 0.2rem 0.55rem;
+  margin-bottom: 0.75rem;
+  padding: 0.25rem 0.65rem;
   border-radius: 4px;
 }
 .tag-light {
-  background: rgba(248, 247, 244, 0.12);
+  background: rgba(248, 247, 244, 0.14);
   color: var(--c-amber);
-  border: 1px solid rgba(251, 191, 36, 0.3);
+  border: 1.5px solid rgba(251, 191, 36, 0.4);
+  box-shadow: 2px 2px 0px var(--c-ink);
 }
 .tag-dark {
   background: rgba(17, 17, 17, 0.08);
   color: var(--c-ink);
-  border: 1px solid rgba(17, 17, 17, 0.25);
+  border: 1.5px solid var(--c-ink);
+  box-shadow: 2px 2px 0px var(--c-ink);
 }
 
 .section-heading {
-  font-size: clamp(2rem, 3.8vw, 3rem);
+  font-size: clamp(2.2rem, 4vw, 3.25rem);
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 1.08;
   letter-spacing: -0.03em;
-  margin-bottom: 0.85rem;
+  margin-bottom: 0.95rem;
 }
 .section-heading em {
   font-family: var(--font-serif);
@@ -247,37 +225,45 @@ body {
 }
 
 .section-lead {
-  font-size: 1rem;
-  max-width: 620px;
+  font-size: 1.05rem;
+  max-width: 660px;
   line-height: 1.7;
 }
 
-/* ── NAVBAR (Deep Forest Green) ── */
+/* ── NAVBAR (Deep Forest Green, Flush at top: 0) ── */
 nav {
   position: fixed;
-  top: 5px;
+  top: 0;
   left: 0;
   right: 0;
   z-index: 900;
-  background: rgba(18, 60, 52, 0.94);
+  background: rgba(18, 60, 52, 0.96);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: var(--border-thick);
-  padding: 0 5vw;
-  height: 66px;
+  height: 68px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   transition: height 0.25s ease, background 0.25s ease;
 }
 nav.scrolled {
-  height: 58px;
+  height: 60px;
   background: rgba(18, 60, 52, 0.98);
+}
+
+.nav-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .nav-brand {
   font-family: var(--font-mono);
-  font-size: 0.98rem;
+  font-size: 1.02rem;
   font-weight: 700;
   color: var(--c-cream);
   text-decoration: none;
@@ -298,18 +284,18 @@ nav.scrolled {
 }
 .nav-links a {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  color: rgba(248, 247, 244, 0.75);
+  color: rgba(248, 247, 244, 0.82);
   text-decoration: none;
   letter-spacing: 0.04em;
-  padding: 0.3rem 0.5rem;
+  padding: 0.35rem 0.65rem;
   border-radius: 4px;
   transition: color 0.15s ease, background 0.15s ease;
 }
 .nav-links a:hover {
   color: var(--c-amber);
-  background: rgba(251, 191, 36, 0.08);
+  background: rgba(251, 191, 36, 0.1);
 }
 .nav-links a.active {
   color: var(--c-ink);
@@ -320,12 +306,12 @@ nav.scrolled {
 
 .nav-cta {
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 700;
   color: var(--c-ink);
   background: var(--c-amber);
   border: var(--border-thick);
-  padding: 0.45rem 1.1rem;
+  padding: 0.5rem 1.2rem;
   text-decoration: none;
   border-radius: 6px;
   box-shadow: 3px 3px 0px var(--c-ink);
@@ -360,9 +346,9 @@ nav.scrolled {
   transition: all 0.25s ease;
 }
 
-/* ── COMMON SECTION STRUCTURE ── */
+/* ── COMMON SECTION WRAPPER ── */
 section {
-  padding: 110px 5vw;
+  padding: 110px 0;
   position: relative;
   z-index: 1;
 }
@@ -371,7 +357,7 @@ section {
   margin-bottom: 3.2rem;
 }
 
-/* ── SECTION 0: HERO (Deep Forest Green) ── */
+/* ── SECTION 0: HERO (Deep Forest Green, 50/50 Balanced Split) ── */
 #hero {
   background-color: var(--c-forest);
   background-image: var(--grid-light-dots);
@@ -380,14 +366,21 @@ section {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 125px 5vw 80px;
-  gap: 4.5rem;
+  padding: 130px 0 80px;
   border-bottom: var(--border-thick);
 }
 
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
+}
+
 .hero-left {
-  flex: 1.15;
-  max-width: 600px;
+  max-width: 580px;
+  width: 100%;
   position: relative;
   z-index: 2;
 }
@@ -397,35 +390,35 @@ section {
   align-items: center;
   gap: 0.6rem;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--c-cream);
-  background: rgba(248, 247, 244, 0.08);
+  background: rgba(248, 247, 244, 0.1);
   border: var(--border-mid);
-  border-color: rgba(248, 247, 244, 0.4);
+  border-color: rgba(248, 247, 244, 0.45);
   box-shadow: 3px 3px 0px var(--c-ink);
-  padding: 0.35rem 0.85rem;
+  padding: 0.4rem 0.95rem;
   border-radius: 4px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  margin-bottom: 1.4rem;
+  margin-bottom: 1.5rem;
 }
 .hero-eyebrow-dot {
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
   background: var(--c-lime);
   border-radius: 50%;
   border: 1px solid var(--c-ink);
-  box-shadow: 0 0 6px rgba(190, 242, 100, 0.8);
+  box-shadow: 0 0 6px rgba(190, 242, 100, 0.9);
 }
 
 .hero-name {
-  font-size: clamp(3.2rem, 6.8vw, 5.2rem);
+  font-size: clamp(3.75rem, 6vw, 5.5rem);
   font-weight: 800;
   color: var(--c-cream);
   line-height: 0.98;
   letter-spacing: -0.035em;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.35rem;
 }
 .hero-name em {
   font-family: var(--font-serif);
@@ -435,33 +428,33 @@ section {
   letter-spacing: -0.01em;
 }
 
-/* Typing Role Badge */
+/* Typing Role Badge (Scaled Up) */
 .hero-role-cluster {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.8rem;
   background: var(--c-lime);
   color: var(--c-ink);
   border: var(--border-thick);
   border-radius: 6px;
   box-shadow: 4px 4px 0px var(--c-ink);
-  padding: 0.4rem 0.9rem;
+  padding: 8px 14px;
   margin-bottom: 1.6rem;
   max-width: 100%;
 }
 .hero-role-tag {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   font-weight: 800;
   background: var(--c-ink);
   color: var(--c-lime);
-  padding: 0.15rem 0.45rem;
+  padding: 3px 7px;
   border-radius: 3px;
   letter-spacing: 0.08em;
 }
 .hero-title {
   font-family: var(--font-mono);
-  font-size: clamp(0.88rem, 1.8vw, 1.05rem);
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--c-ink);
   letter-spacing: 0.02em;
@@ -481,11 +474,11 @@ section {
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
 .hero-tagline {
-  font-size: 1.05rem;
-  color: rgba(248, 247, 244, 0.88);
-  max-width: 500px;
-  margin-bottom: 2.2rem;
-  line-height: 1.75;
+  font-size: 1.1rem;
+  color: rgba(248, 247, 244, 0.9);
+  max-width: 540px;
+  margin-bottom: 2rem;
+  line-height: 1.65;
 }
 
 .hero-actions {
@@ -493,23 +486,76 @@ section {
   gap: 1.1rem;
   align-items: center;
   flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+/* Lower Left Quadrant Anchor Row */
+.hero-focus-cluster {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding-top: 1.6rem;
+  border-top: 1.5px dashed rgba(248, 247, 244, 0.25);
+  max-width: 540px;
+}
+.hero-focus-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.hero-social-strip {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.hero-social-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--c-amber);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.social-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--c-cream);
+  border: var(--border-mid);
+  border-radius: 6px;
+  box-shadow: 2.5px 2.5px 0px var(--c-ink);
+  color: var(--c-ink);
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+.social-icon-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px var(--c-ink);
+  background: var(--c-amber);
+}
+.social-icon-btn svg {
+  width: 17px;
+  height: 17px;
 }
 
 /* ── HERO RIGHT: EDITORIAL FOCAL CLUSTER ── */
 .hero-right {
-  flex: 0.95;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   position: relative;
   z-index: 2;
+  width: 100%;
 }
 
 .focal-cluster {
   position: relative;
   width: 100%;
-  max-width: 440px;
+  max-width: 460px;
   margin: 20px 0;
+  justify-self: end;
 }
 
 /* Framed Illustration Card */
@@ -526,7 +572,7 @@ section {
 .focal-frame-bar {
   background: #EAE6DE;
   border-bottom: var(--border-thick);
-  padding: 0.6rem 0.9rem;
+  padding: 0.65rem 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -547,29 +593,29 @@ section {
 
 .frame-title {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--c-ink);
   letter-spacing: 0.04em;
 }
 .frame-tag {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.68rem;
   font-weight: 700;
   background: var(--c-lime);
   border: 1px solid var(--c-ink);
-  padding: 0.1rem 0.4rem;
+  padding: 0.15rem 0.45rem;
   border-radius: 3px;
 }
 
 .focal-frame-body {
-  padding: 1.5rem;
+  padding: 1.8rem 1.5rem;
   display: grid;
   place-items: center;
   background-color: var(--c-alabaster);
-  background-image: radial-gradient(rgba(17, 17, 17, 0.08) 1.2px, transparent 1.2px);
+  background-image: radial-gradient(rgba(17, 17, 17, 0.12) 1.2px, transparent 1.2px);
   background-size: 16px 16px;
-  min-height: 340px;
+  min-height: 350px;
 }
 
 .hero-portrait {
@@ -586,11 +632,11 @@ section {
 .focal-frame-footer {
   border-top: var(--border-thick);
   background: var(--c-white);
-  padding: 0.6rem 0.9rem;
+  padding: 0.65rem 1rem;
   display: flex;
   justify-content: space-between;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 600;
   color: var(--c-ink-muted);
 }
@@ -602,10 +648,10 @@ section {
   border: var(--border-thick);
   border-radius: 8px;
   box-shadow: 4px 4px 0px var(--c-ink);
-  padding: 0.65rem 1rem;
+  padding: 0.7rem 1.05rem;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.8rem;
   color: var(--c-ink);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -616,12 +662,12 @@ section {
 
 .badge-stat-1 {
   top: -18px;
-  left: -22px;
+  left: -24px;
   background: var(--c-white);
 }
 .badge-stat-2 {
-  top: 42%;
-  right: -26px;
+  top: 40%;
+  right: -28px;
   background: var(--c-amber);
 }
 .badge-stat-3 {
@@ -631,8 +677,8 @@ section {
 }
 
 .cluster-badge .stat-icon {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border: var(--border-mid);
   border-radius: 6px;
   background: var(--c-white);
@@ -640,18 +686,18 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.95rem;
+  font-size: 1rem;
   flex-shrink: 0;
 }
 .cluster-badge .stat-num {
   font-family: var(--font-mono);
-  font-size: 1.45rem;
+  font-size: 1.5rem;
   font-weight: 800;
   line-height: 1;
 }
 .cluster-badge .stat-label {
   font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -659,12 +705,12 @@ section {
 }
 .cluster-badge .stat-sub {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   color: var(--c-ink-soft);
   display: block;
 }
 
-/* ── SECTION 1: SKILLS & PROFICIENCIES (Muted Stone-Lilac) ── */
+/* ── SECTION 1: SKILLS & PROFICIENCIES (Full 1240px 4-col x 2-row) ── */
 #skills {
   background-color: var(--c-lilac);
   background-image: var(--grid-dark-dots);
@@ -675,9 +721,9 @@ section {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  gap: 1.1rem;
-  max-width: 980px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.4rem;
+  width: 100%;
 }
 
 .skill-tile {
@@ -685,12 +731,12 @@ section {
   border: var(--border-thick);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
-  padding: 1.4rem 1rem;
+  padding: 1.75rem 1.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.8rem;
+  gap: 0.85rem;
   text-align: center;
   transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: default;
@@ -701,8 +747,8 @@ section {
   background: #FCFCFA;
 }
 .skill-tile svg {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   transition: transform 0.2s ease;
 }
 .skill-tile:hover svg {
@@ -710,13 +756,13 @@ section {
 }
 .skill-tile .skill-name {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.88rem;
   font-weight: 700;
   color: var(--c-ink);
   letter-spacing: 0.02em;
 }
 
-/* ── SECTION 2: SELECTED PROJECTS (Warm Alabaster) ── */
+/* ── SECTION 2: SELECTED PROJECTS (Full 1240px 2-column Grid) ── */
 #projects {
   background-color: var(--c-alabaster);
   background-image: var(--grid-dark-dots);
@@ -727,8 +773,9 @@ section {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.8rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  width: 100%;
 }
 
 .project-card {
@@ -749,35 +796,35 @@ section {
 .project-terminal-bar {
   background: #F8F7F4;
   border-bottom: var(--border-thick);
-  padding: 0.55rem 0.9rem;
+  padding: 0.6rem 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 .project-terminal-path {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--c-ink-muted);
 }
 
 .project-card-body {
-  padding: 1.6rem;
+  padding: 1.85rem;
   display: flex;
   flex-direction: column;
-  gap: 0.95rem;
+  gap: 1.05rem;
   flex: 1;
 }
 
 .project-header-row {
   display: flex;
   align-items: center;
-  gap: 0.9rem;
+  gap: 1rem;
 }
 
 .project-icon {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border: var(--border-thick);
   border-radius: 8px;
   box-shadow: 3px 3px 0px var(--c-ink);
@@ -785,7 +832,7 @@ section {
   align-items: center;
   justify-content: center;
   font-family: var(--font-mono);
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 800;
   color: var(--c-ink);
   flex-shrink: 0;
@@ -796,7 +843,7 @@ section {
 .icon-pawpal { background: var(--c-sky); }
 
 .project-title {
-  font-size: 1.35rem;
+  font-size: 1.45rem;
   font-weight: 800;
   letter-spacing: -0.02em;
   color: var(--c-ink);
@@ -808,22 +855,22 @@ section {
 }
 
 .project-desc {
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   color: var(--c-ink-soft);
-  line-height: 1.68;
+  line-height: 1.7;
   flex: 1;
 }
 
 .project-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.45rem;
+  gap: 0.5rem;
   margin-top: 0.4rem;
 }
 
 .project-footer {
-  margin-top: 1rem;
-  padding-top: 1rem;
+  margin-top: 1.1rem;
+  padding-top: 1.1rem;
   border-top: 1.5px dashed rgba(17, 17, 17, 0.2);
   display: flex;
   align-items: center;
@@ -831,18 +878,18 @@ section {
 }
 .project-link-btn {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--c-ink);
   background: var(--c-cream);
   border: var(--border-mid);
-  padding: 0.35rem 0.8rem;
+  padding: 0.4rem 0.9rem;
   border-radius: 6px;
   box-shadow: 2px 2px 0px var(--c-ink);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.4rem;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 .project-link-btn:hover {
@@ -851,7 +898,7 @@ section {
   background: var(--c-white);
 }
 
-/* ── SECTION 3: ENGINEERING EXPERIENCE (Muted Stone-Lilac) ── */
+/* ── SECTION 3: ENGINEERING EXPERIENCE (2-Column Editorial Split) ── */
 #experience {
   background-color: var(--c-lilac);
   background-image: var(--grid-dark-dots);
@@ -860,11 +907,32 @@ section {
   border-bottom: var(--border-thick);
 }
 
+.experience-split {
+  display: grid;
+  grid-template-columns: 0.35fr 0.65fr;
+  gap: 3.5rem;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.experience-sidebar {
+  position: sticky;
+  top: 96px;
+}
+
+.experience-sidebar-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 1.8rem;
+  align-items: flex-start;
+}
+
 .timeline {
-  max-width: 820px;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  width: 100%;
 }
 
 .timeline-card {
@@ -872,7 +940,7 @@ section {
   border: var(--border-thick);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
-  padding: 1.75rem 2rem;
+  padding: 1.85rem 2.2rem;
   transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .timeline-card:hover {
@@ -890,7 +958,7 @@ section {
 }
 
 .tl-role-title {
-  font-size: 1.22rem;
+  font-size: 1.25rem;
   font-weight: 800;
   color: var(--c-ink);
   letter-spacing: -0.01em;
@@ -898,13 +966,13 @@ section {
 
 .tl-company {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: var(--c-forest);
   margin-bottom: 0.95rem;
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.45rem;
 }
 .tl-company svg {
   color: var(--c-ink);
@@ -914,13 +982,13 @@ section {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.65rem;
 }
 .tl-points li {
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   color: var(--c-ink-soft);
-  line-height: 1.65;
-  padding-left: 1.3rem;
+  line-height: 1.68;
+  padding-left: 1.4rem;
   position: relative;
 }
 .tl-points li::before {
@@ -932,7 +1000,7 @@ section {
   color: var(--c-ink);
 }
 
-/* ── SECTION 4: ABOUT & LEADERSHIP (Crisp White) ── */
+/* ── SECTION 4: ABOUT & LEADERSHIP (Full 1240px Width + 3-col Honors) ── */
 #about {
   background-color: var(--c-white);
   background-image: var(--grid-dark-dots);
@@ -946,17 +1014,17 @@ section {
   border: var(--border-thick);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
-  padding: 2.5rem;
-  max-width: 900px;
+  padding: 2.8rem;
+  width: 100%;
   display: flex;
-  gap: 3rem;
+  gap: 3.2rem;
   align-items: flex-start;
   margin-bottom: 3.5rem;
 }
 
 .avatar-tactile {
-  width: 140px;
-  height: 140px;
+  width: 150px;
+  height: 150px;
   background: var(--c-amber);
   border: var(--border-thick);
   border-radius: var(--radius-md);
@@ -969,30 +1037,30 @@ section {
 }
 .avatar-initials {
   font-family: var(--font-mono);
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   font-weight: 800;
   color: var(--c-ink);
   line-height: 1;
 }
 .avatar-tag {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   background: var(--c-ink);
   color: var(--c-amber);
-  padding: 0.15rem 0.45rem;
+  padding: 0.2rem 0.5rem;
   border-radius: 3px;
-  margin-top: 0.4rem;
+  margin-top: 0.45rem;
 }
 
 .about-body {
   flex: 1;
 }
 .about-name {
-  font-size: 1.6rem;
+  font-size: 1.75rem;
   font-weight: 800;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.85rem;
   letter-spacing: -0.02em;
 }
 .about-name em {
@@ -1002,16 +1070,16 @@ section {
 }
 
 .about-text {
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   color: var(--c-ink-soft);
-  line-height: 1.75;
+  line-height: 1.78;
   margin-bottom: 1.4rem;
 }
 
 .about-meta-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.65rem;
+  gap: 0.75rem;
   margin-bottom: 1.6rem;
 }
 
@@ -1023,8 +1091,8 @@ section {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   background: var(--c-white);
   border: var(--border-thick);
   border-radius: 6px;
@@ -1043,12 +1111,12 @@ section {
   height: 20px;
 }
 
-/* Awards Subsection */
+/* Honors & Leadership (Equal 3-column Grid across full 1240px) */
 .awards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-  gap: 1.3rem;
-  max-width: 900px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  width: 100%;
 }
 
 .award-card {
@@ -1056,10 +1124,10 @@ section {
   border: var(--border-thick);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
-  padding: 1.5rem;
+  padding: 1.65rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.55rem;
   transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .award-card:hover {
@@ -1067,41 +1135,49 @@ section {
   box-shadow: var(--shadow-hover);
 }
 .award-title {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 800;
   color: var(--c-ink);
 }
 .award-sub {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 600;
   color: var(--c-forest);
 }
 .award-detail {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   color: var(--c-ink-soft);
-  line-height: 1.6;
+  line-height: 1.62;
 }
 
-/* ── SECTION 5: CONTACT & FOOTER BOOKEND (Deep Forest Green) ── */
+/* ── SECTION 5: CONTACT & BOOKEND FOOTER (Balanced 2-Column Split) ── */
 #contact {
   background-color: var(--c-forest);
   background-image: var(--grid-light-dots);
   background-size: var(--grid-size);
   color: var(--c-cream);
-  padding-bottom: 70px;
+  padding: 110px 0 90px;
 }
 
-.contact-wrapper {
-  max-width: 640px;
+.contact-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+}
+
+.contact-left {
+  max-width: 520px;
 }
 
 .contact-card-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
-  margin: 2rem 0;
+  gap: 1rem;
+  width: 100%;
 }
 
 .contact-item {
@@ -1110,13 +1186,13 @@ section {
   border: var(--border-thick);
   border-radius: var(--radius-md);
   box-shadow: 4px 4px 0px var(--c-ink);
-  padding: 0.95rem 1.25rem;
+  padding: 1.1rem 1.4rem;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.1rem;
   text-decoration: none;
   font-family: var(--font-mono);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 600;
   transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
@@ -1135,14 +1211,20 @@ footer {
   background: var(--c-forest-dark);
   color: var(--c-cream);
   border-top: var(--border-thick);
-  padding: 2.4rem 5vw;
+  padding: 2.2rem 0;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+.footer-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 1.2rem;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
 }
 .footer-logo {
   font-weight: 700;
@@ -1181,28 +1263,68 @@ footer {
   transform: none;
 }
 
-/* ── RESPONSIVE ADAPTATIONS (< 900px & < 768px) ── */
-@media (max-width: 960px) {
-  #hero {
-    flex-direction: column;
-    padding-top: 110px;
+/* ── RESPONSIVE ADAPTATIONS (< 1024px & < 768px) ── */
+@media (max-width: 1024px) {
+  .section-container,
+  .nav-container,
+  .footer-container {
+    padding: 0 2rem;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
     gap: 3.5rem;
   }
   .hero-left {
     max-width: 100%;
   }
   .hero-right {
-    width: 100%;
+    justify-content: center;
   }
   .focal-cluster {
-    max-width: 400px;
+    max-width: 440px;
     margin: 10px auto;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .experience-split {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .experience-sidebar {
+    position: static;
+  }
+  .experience-sidebar-badges {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+
+  .awards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-split {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .contact-left {
+    max-width: 100%;
   }
 }
 
 @media (max-width: 768px) {
+  .section-container,
+  .nav-container,
+  .footer-container {
+    padding: 0 1.25rem;
+  }
+
   nav {
-    padding: 0 4vw;
+    height: 64px;
   }
   .nav-links, .nav-cta {
     display: none;
@@ -1214,11 +1336,11 @@ footer {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 66px;
+    top: 64px;
     left: 0;
     right: 0;
     background: var(--c-forest);
-    padding: 1.5rem 5vw;
+    padding: 1.5rem 1.25rem;
     border-bottom: var(--border-thick);
     box-shadow: 0 6px 0px var(--c-ink);
     gap: 1rem;
@@ -1234,7 +1356,11 @@ footer {
   }
 
   section {
-    padding: 80px 5vw;
+    padding: 70px 0;
+  }
+
+  #hero {
+    padding: 105px 0 60px;
   }
 
   /* Stat Badges Stacking on Mobile to Prevent Overflow */
@@ -1251,14 +1377,29 @@ footer {
     width: 100%;
   }
 
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
   .about-card {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 1.8rem 1.4rem;
+    padding: 2rem 1.4rem;
+    gap: 1.5rem;
   }
   .about-meta-row, .social-links {
     justify-content: center;
+  }
+
+  .awards-grid {
+    grid-template-columns: 1fr;
   }
 
   .tl-header {
@@ -1267,137 +1408,413 @@ footer {
   }
 
   .timeline-card {
-    padding: 1.4rem;
+    padding: 1.5rem;
   }
 
-  footer {
+  .footer-container {
     flex-direction: column;
     text-align: center;
   }
 }
 
 @media (max-width: 480px) {
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .hero-focus-pills {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  .projects-grid {
-    grid-template-columns: 1fr;
+  .hero-role-cluster {
+    flex-wrap: wrap;
   }
 }
 </style>
 </head>
 <body>
 
-<!-- ── TOP VIEWPORT ACCENT STRIP ── -->
-<div id="top-accent-strip" aria-hidden="true"></div>
-
-<!-- ── SCROLL PROGRESS (Amber Monoline) ── -->
+<!-- ── SCROLL PROGRESS (Amber Top Bar) ── -->
 <div id="scroll-progress" aria-hidden="true"></div>
 
-<!-- ── NAVBAR (Deep Forest Green) ── -->
+<!-- ── NAVBAR (Deep Forest Green, Flush at top: 0) ── -->
 <nav id="nav">
-  <a href="#hero" class="nav-brand">
-    <span class="bracket">&lt;</span> Mahi Sreedhar <span class="bracket">/&gt;</span>
-  </a>
+  <div class="nav-container">
+    <a href="#hero" class="nav-brand">
+      <span class="bracket">&lt;</span> Mahi Sreedhar <span class="bracket">/&gt;</span>
+    </a>
 
-  <ul class="nav-links">
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+    <ul class="nav-links">
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
 
-  <a href="mailto:mahisreedhar22@gmail.com" class="nav-cta">Get in touch</a>
+    <a href="mailto:mahisreedhar22@gmail.com" class="nav-cta">Get in touch</a>
 
-  <div class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Toggle Navigation">
-    <span></span><span></span><span></span>
+    <div class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Toggle Navigation">
+      <span></span><span></span><span></span>
+    </div>
   </div>
 </nav>
 
-<!-- ── 0. HERO SECTION (Deep Forest Green & Light Dot Grid) ── -->
+<!-- ── 0. HERO SECTION (Deep Forest Green, 50/50 Balanced Split) ── -->
 <section id="hero">
-  <div class="hero-left">
-    <div class="hero-eyebrow">
-      <span class="hero-eyebrow-dot"></span>
-      <span>HELLO, WORLD // 2026</span>
-    </div>
+  <div class="section-container hero-grid">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-dot"></span>
+        <span>HELLO, WORLD // 2026</span>
+      </div>
 
-    <h1 class="hero-name">
-      Mahi<br><em>Sreedhar.</em>
-    </h1>
+      <h1 class="hero-name">
+        Mahi<br><em>Sreedhar.</em>
+      </h1>
 
-    <div class="hero-role-cluster">
-      <span class="hero-role-tag">ROLE</span>
-      <div class="hero-title" id="typewriter-el">
-        <span class="cursor-blink"></span>
+      <div class="hero-role-cluster">
+        <span class="hero-role-tag">ROLE</span>
+        <div class="hero-title" id="typewriter-el">
+          <span class="cursor-blink"></span>
+        </div>
+      </div>
+
+      <p class="hero-tagline">
+        Building offline-first apps, AI-powered tools, and scalable dashboards. Graduated with a BSc in Computer Science &amp; Mathematics from Christ University, Bengaluru.
+      </p>
+
+      <div class="hero-actions">
+        <a href="mailto:mahisreedhar22@gmail.com" class="btn btn-primary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Get in Touch
+        </a>
+        <a href="#projects" class="btn btn-secondary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="5 3 19 12 5 21 5 3"/></svg>
+          View Work
+        </a>
+      </div>
+
+      <!-- Lower Left Anchor Cluster -->
+      <div class="hero-focus-cluster">
+        <div class="hero-focus-pills">
+          <span class="spec-badge spec-badge-lime">Offline-First Apps</span>
+          <span class="spec-badge spec-badge-amber">AI &amp; CV Pipelines</span>
+          <span class="spec-badge spec-badge-cream">Full-Stack Systems</span>
+        </div>
+        <div class="hero-social-strip">
+          <span class="hero-social-label">Connect //</span>
+          <a href="https://github.com/mahisreedhar" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.461-1.11-1.461-.907-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/mahisreedhar" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="mailto:mahisreedhar22@gmail.com" class="social-icon-btn" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
       </div>
     </div>
 
-    <p class="hero-tagline">
-      Building offline-first apps, AI-powered tools, and scalable dashboards. Graduated with a BSc in Computer Science &amp; Mathematics from Christ University, Bengaluru.
-    </p>
+    <div class="hero-right">
+      <div class="focal-cluster" id="hero-cluster">
+        <!-- Framed Portrait Card -->
+        <div class="focal-frame">
+          <div class="focal-frame-bar">
+            <div class="frame-dots">
+              <span class="frame-dot dot-red"></span>
+              <span class="frame-dot dot-yellow"></span>
+              <span class="frame-dot dot-green"></span>
+            </div>
+            <span class="frame-title">mahi_dev_workspace.sys</span>
+            <span class="frame-tag">ONLINE</span>
+          </div>
+          <div class="focal-frame-body">
+            <img class="hero-portrait" src="mahi-hero-portrait.png" alt="Mahi Sreedhar — Software Engineer">
+          </div>
+          <div class="focal-frame-footer">
+            <span>// Bengaluru, IN</span>
+            <span>Christ University '26</span>
+          </div>
+        </div>
 
-    <div class="hero-actions">
-      <a href="mailto:mahisreedhar22@gmail.com" class="btn btn-primary">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        Get in Touch
-      </a>
-      <a href="#projects" class="btn btn-secondary">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="5 3 19 12 5 21 5 3"/></svg>
-        View Work
-      </a>
+        <!-- Key Stat Badges (Overlapping on Desktop, Stacking on Mobile) -->
+        <div class="desktop-badges-wrap">
+          <div class="cluster-badge badge-stat-1">
+            <div class="stat-icon">⚡</div>
+            <div>
+              <div class="stat-num" data-count="3">0</div>
+              <div class="stat-label">Internships</div>
+              <span class="stat-sub">Production Experience</span>
+            </div>
+          </div>
+
+          <div class="cluster-badge badge-stat-2">
+            <div class="stat-icon">📦</div>
+            <div>
+              <div class="stat-num" data-count="4">0</div>
+              <div class="stat-label">Projects</div>
+              <span class="stat-sub">AI &amp; Mobile Systems</span>
+            </div>
+          </div>
+
+          <div class="cluster-badge badge-stat-3">
+            <div class="stat-icon">🎓</div>
+            <div>
+              <div class="stat-num" data-suffix="+" data-count="30">0</div>
+              <div class="stat-label">Students Taught</div>
+              <span class="stat-sub">Digital Literacy</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+</section>
 
-  <div class="hero-right">
-    <div class="focal-cluster" id="hero-cluster">
-      <!-- Framed Portrait Card -->
-      <div class="focal-frame">
-        <div class="focal-frame-bar">
+<!-- ── 1. TECHNICAL SKILLS SECTION (Muted Stone-Lilac, 4x2 Grid) ── -->
+<section id="skills">
+  <div class="section-container">
+    <div class="section-header reveal">
+      <div class="section-meta-tag tag-dark">* 01 // CAPABILITIES</div>
+      <h2 class="section-heading">Technical <em>Skills.</em></h2>
+      <p class="section-lead">Core languages, UI frameworks, and distributed backends applied in production codebases and AI pipelines.</p>
+    </div>
+
+    <div class="skills-grid stagger-children">
+      <div class="skill-tile">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 20.5L18.5 10 29 20.5 24.3 25.2 18.5 19.4 12.7 25.2z" fill="#02569B"/>
+          <path d="M12.7 25.2L18.5 31 24.3 25.2 18.5 19.4z" fill="#0175C2"/>
+          <path d="M8 20.5L14 14.5 18.5 10 29 20.5" fill="none" stroke="#111111" stroke-width="1.2"/>
+        </svg>
+        <span class="skill-name">Flutter</span>
+        <span class="spec-badge spec-badge-lime">Mobile UI</span>
+      </div>
+
+      <div class="skill-tile">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="18" cy="18" r="3" fill="#111111"/>
+          <ellipse cx="18" cy="18" rx="14" ry="5.5" stroke="#111111" stroke-width="1.8" fill="none"/>
+          <ellipse cx="18" cy="18" rx="14" ry="5.5" stroke="#111111" stroke-width="1.8" fill="none" transform="rotate(60,18,18)"/>
+          <ellipse cx="18" cy="18" rx="14" ry="5.5" stroke="#111111" stroke-width="1.8" fill="none" transform="rotate(120,18,18)"/>
+        </svg>
+        <span class="skill-name">React</span>
+        <span class="spec-badge spec-badge-amber">Web App</span>
+      </div>
+
+      <div class="skill-tile">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 4L31 11.5V24.5L18 32 5 24.5V11.5z" stroke="#111111" stroke-width="1.8" fill="#BEF264"/>
+          <path d="M12 20.5c0 2 1.5 3.5 4 3.5s5-1 5-4c0-2.5-2-3-4-3.5-1.5-.4-2-.8-2-1.8 0-.9.8-1.7 2.2-1.7 1.5 0 2.3.8 2.3 1.8" stroke="#111111" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+        </svg>
+        <span class="skill-name">Node.js</span>
+        <span class="spec-badge spec-badge-cream">Backend</span>
+      </div>
+
+      <div class="skill-tile">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 4C12 4 11 7 11 10v3h7v1H8c-3 0-4 2-4 6s1 6 4 6h3v-3c0-3.5 2-4 5-4h5c3 0 5-1.5 5-4v-8c0-2.5-2-3-8-3zm-1 3a1.5 1.5 0 110 3 1.5 1.5 0 010-3z" fill="#3776AB"/>
+          <path d="M18 32c6 0 7-3 7-6v-3h-7v-1h8c3 0 4-2 4-6s-1-6-4-6h-3v3c0 3.5-2 4-5 4h-5c-3 0-5 1.5-5 4v8c0 2.5 2 3 8 3zm1-3a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" fill="#FFD43B"/>
+        </svg>
+        <span class="skill-name">Python</span>
+        <span class="spec-badge spec-badge-amber">AI / CV</span>
+      </div>
+
+      <div class="skill-tile">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 24s-2 1.2 1.4 1.6c4 .5 6.1.4 10.5-.4 0 0 1.2.7 2.8 1.3C19.8 30 7.5 26.7 14 24zm-1-4.5s-2.2 1.6 1.2 2c4.3.5 7.7.5 13.5-.7 0 0 .8.8 2.1 1.3C19 25.5 5.6 22.5 13 19.5z" fill="#E76F00"/>
+          <path d="M21.2 4c0 0 4 4-3.8 10.1-6.2 4.9-1.4 7.7 0 10.9-3.6-3.3-6.3-6.2-4.5-8.9C15.5 12.6 22.8 10.6 21.2 4z" fill="#5382A1"/>
+          <path d="M15 31.6s1.5.9 3.8-1.2l-1.5-.1s-2.5 1.3-2.3 1.3zm11.5-4.8s-7.2 1.7-12.6.6c0 0-.7.7.6.8 4.9.6 13.6-.2 13.2-1.7 0 0-.4-.4-1.2.3z" fill="#E76F00"/>
+        </svg>
+        <span class="skill-name">Java</span>
+        <span class="spec-badge spec-badge-lilac">OOP / Sys</span>
+      </div>
+
+      <div class="skill-tile">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 9.5L9.5 6h10.2l10.3 10.3v10.2L26.5 30H16.2z" stroke="#111111" stroke-width="1.8" fill="#38BDF8"/>
+          <path d="M9.5 6L6 9.5v0" stroke="#111111" stroke-width="1.8"/>
+          <path d="M26.5 30l3.5-3.5v0" stroke="#111111" stroke-width="1.8"/>
+          <circle cx="18" cy="18" r="3" fill="#111111"/>
+        </svg>
+        <span class="skill-name">Dart</span>
+        <span class="spec-badge spec-badge-lime">Mobile</span>
+      </div>
+
+      <div class="skill-tile">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 4l2.4 26L18 33l9.6-3L30 4z" fill="#E44D26" stroke="#111111" stroke-width="1.5"/>
+          <path d="M18 10v16.5l7-2L26.5 10H18z" fill="#F16529"/>
+          <path d="M9.5 14h17M10 20h13.5" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <span class="skill-name">HTML/CSS</span>
+        <span class="spec-badge spec-badge-cream">Standards</span>
+      </div>
+
+      <div class="skill-tile">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 16h12v10a2 2 0 01-2 2H14a2 2 0 01-2-2V16z" stroke="#111111" stroke-width="1.8" fill="#3DDC84"/>
+          <path d="M15 16V14a3 3 0 016 0v2" stroke="#111111" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="15.5" cy="20" r="1.2" fill="#111111"/>
+          <circle cx="20.5" cy="20" r="1.2" fill="#111111"/>
+          <path d="M18 24v2M9 19v4M27 19v4" stroke="#111111" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M14 13L12 10M22 13L24 10" stroke="#111111" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span class="skill-name">Android</span>
+        <span class="spec-badge spec-badge-lime">Native SDK</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 2. SELECTED PROJECTS SECTION (Warm Alabaster, Full 2-Column Grid) ── -->
+<section id="projects">
+  <div class="section-container">
+    <div class="section-header reveal">
+      <div class="section-meta-tag tag-dark">* 02 // PORTFOLIO</div>
+      <h2 class="section-heading">Selected <em>Projects.</em></h2>
+      <p class="section-lead">Full-stack web applications, offline-resilient mobile architectures, and real-time computer vision systems.</p>
+    </div>
+
+    <div class="projects-grid stagger-children">
+      <!-- Jagruti -->
+      <div class="project-card">
+        <div class="project-terminal-bar">
           <div class="frame-dots">
             <span class="frame-dot dot-red"></span>
             <span class="frame-dot dot-yellow"></span>
             <span class="frame-dot dot-green"></span>
           </div>
-          <span class="frame-title">mahi_dev_workspace.sys</span>
-          <span class="frame-tag">ONLINE</span>
+          <span class="project-terminal-path">~/projects/jagruti-survey</span>
         </div>
-        <div class="focal-frame-body">
-          <img class="hero-portrait" src="mahi-hero-portrait.png" alt="Mahi Sreedhar — Software Engineer">
-        </div>
-        <div class="focal-frame-footer">
-          <span>// Bengaluru, IN</span>
-          <span>Christ University '26</span>
+        <div class="project-card-body">
+          <div class="project-header-row">
+            <div class="project-icon icon-jagruti">JG</div>
+            <div>
+              <h3 class="project-title">Jagruti</h3>
+              <span class="spec-badge spec-badge-lime">Offline-First Mobile</span>
+            </div>
+          </div>
+          <p class="project-desc">
+            Offline-first mobile app for rural survey collection using Flutter and Hive DB with Server Driven UI. Paired with a React admin dashboard featuring a dynamic survey builder, impact analytics, and granular RBAC.
+          </p>
+          <div class="project-tags">
+            <span class="spec-badge spec-badge-cream">Flutter</span>
+            <span class="spec-badge spec-badge-cream">React</span>
+            <span class="spec-badge spec-badge-cream">Node.js</span>
+            <span class="spec-badge spec-badge-cream">Hive DB</span>
+          </div>
+          <div class="project-footer">
+            <span class="spec-badge spec-badge-amber">Deployed System</span>
+            <a href="#contact" class="project-link-btn">
+              Inquire Details
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
         </div>
       </div>
 
-      <!-- Key Stat Badges (Overlapping on Desktop, Stacking on Mobile) -->
-      <div class="desktop-badges-wrap">
-        <div class="cluster-badge badge-stat-1">
-          <div class="stat-icon">⚡</div>
-          <div>
-            <div class="stat-num" data-count="3">0</div>
-            <div class="stat-label">Internships</div>
-            <span class="stat-sub">Production Experience</span>
+      <!-- Sensei Says -->
+      <div class="project-card">
+        <div class="project-terminal-bar">
+          <div class="frame-dots">
+            <span class="frame-dot dot-red"></span>
+            <span class="frame-dot dot-yellow"></span>
+            <span class="frame-dot dot-green"></span>
+          </div>
+          <span class="project-terminal-path">~/projects/sensei-says-ai</span>
+        </div>
+        <div class="project-card-body">
+          <div class="project-header-row">
+            <div class="project-icon icon-sensei">SS</div>
+            <div>
+              <h3 class="project-title">Sensei Says</h3>
+              <span class="spec-badge spec-badge-amber">AI / Computer Vision</span>
+            </div>
+          </div>
+          <p class="project-desc">
+            Real-time AI exercise form checker with live rep counting via camera feed. Uses computer vision to analyse body pose and provide instant corrective feedback during workouts.
+          </p>
+          <div class="project-tags">
+            <span class="spec-badge spec-badge-cream">Python</span>
+            <span class="spec-badge spec-badge-cream">React</span>
+            <span class="spec-badge spec-badge-cream">AI/ML</span>
+            <span class="spec-badge spec-badge-cream">OpenCV</span>
+          </div>
+          <div class="project-footer">
+            <span class="spec-badge spec-badge-lime">Vision Model</span>
+            <a href="#contact" class="project-link-btn">
+              Inquire Details
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
           </div>
         </div>
+      </div>
 
-        <div class="cluster-badge badge-stat-2">
-          <div class="stat-icon">📦</div>
-          <div>
-            <div class="stat-num" data-count="4">0</div>
-            <div class="stat-label">Projects</div>
-            <span class="stat-sub">AI &amp; Mobile Systems</span>
+      <!-- Sojara -->
+      <div class="project-card">
+        <div class="project-terminal-bar">
+          <div class="frame-dots">
+            <span class="frame-dot dot-red"></span>
+            <span class="frame-dot dot-yellow"></span>
+            <span class="frame-dot dot-green"></span>
+          </div>
+          <span class="project-terminal-path">~/projects/sojara-records</span>
+        </div>
+        <div class="project-card-body">
+          <div class="project-header-row">
+            <div class="project-icon icon-sojara">SJ</div>
+            <div>
+              <h3 class="project-title">Sojara</h3>
+              <span class="spec-badge spec-badge-lilac">Enterprise Management</span>
+            </div>
+          </div>
+          <p class="project-desc">
+            Digital records management system built for an NGO to replace paper-based workflows. Enables structured data entry, search, and reporting for field operations.
+          </p>
+          <div class="project-tags">
+            <span class="spec-badge spec-badge-cream">React</span>
+            <span class="spec-badge spec-badge-cream">Node.js</span>
+          </div>
+          <div class="project-footer">
+            <span class="spec-badge spec-badge-cream">NGO Tool</span>
+            <a href="#contact" class="project-link-btn">
+              Inquire Details
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
           </div>
         </div>
+      </div>
 
-        <div class="cluster-badge badge-stat-3">
-          <div class="stat-icon">🎓</div>
-          <div>
-            <div class="stat-num" data-suffix="+" data-count="30">0</div>
-            <div class="stat-label">Students Taught</div>
-            <span class="stat-sub">Digital Literacy</span>
+      <!-- PawPal -->
+      <div class="project-card">
+        <div class="project-terminal-bar">
+          <div class="frame-dots">
+            <span class="frame-dot dot-red"></span>
+            <span class="frame-dot dot-yellow"></span>
+            <span class="frame-dot dot-green"></span>
+          </div>
+          <span class="project-terminal-path">~/projects/pawpal-health</span>
+        </div>
+        <div class="project-card-body">
+          <div class="project-header-row">
+            <div class="project-icon icon-pawpal">PP</div>
+            <div>
+              <h3 class="project-title">PawPal</h3>
+              <span class="spec-badge spec-badge-lime">Mobile Health</span>
+            </div>
+          </div>
+          <p class="project-desc">
+            Pet health management mobile app with vaccination reminders, vet appointment scheduling, and a health log to track wellness metrics for pet owners.
+          </p>
+          <div class="project-tags">
+            <span class="spec-badge spec-badge-cream">Flutter</span>
+            <span class="spec-badge spec-badge-cream">Dart</span>
+          </div>
+          <div class="project-footer">
+            <span class="spec-badge spec-badge-amber">iOS &amp; Android</span>
+            <a href="#contact" class="project-link-btn">
+              Inquire Details
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
           </div>
         </div>
       </div>
@@ -1405,441 +1822,214 @@ footer {
   </div>
 </section>
 
-<!-- ── 1. TECHNICAL SKILLS SECTION (Muted Stone-Lilac) ── -->
-<section id="skills">
-  <div class="section-header reveal">
-    <div class="section-meta-tag tag-dark">* 01 // CAPABILITIES</div>
-    <h2 class="section-heading">Technical <em>Skills.</em></h2>
-    <p class="section-lead">Core languages, UI frameworks, and distributed backends applied in production codebases and AI pipelines.</p>
-  </div>
-
-  <div class="skills-grid stagger-children">
-    <div class="skill-tile">
-      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M8 20.5L18.5 10 29 20.5 24.3 25.2 18.5 19.4 12.7 25.2z" fill="#02569B"/>
-        <path d="M12.7 25.2L18.5 31 24.3 25.2 18.5 19.4z" fill="#0175C2"/>
-        <path d="M8 20.5L14 14.5 18.5 10 29 20.5" fill="none" stroke="#111111" stroke-width="1.2"/>
-      </svg>
-      <span class="skill-name">Flutter</span>
-      <span class="spec-badge spec-badge-lime">Mobile UI</span>
-    </div>
-
-    <div class="skill-tile">
-      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="18" cy="18" r="3" fill="#111111"/>
-        <ellipse cx="18" cy="18" rx="14" ry="5.5" stroke="#111111" stroke-width="1.8" fill="none"/>
-        <ellipse cx="18" cy="18" rx="14" ry="5.5" stroke="#111111" stroke-width="1.8" fill="none" transform="rotate(60,18,18)"/>
-        <ellipse cx="18" cy="18" rx="14" ry="5.5" stroke="#111111" stroke-width="1.8" fill="none" transform="rotate(120,18,18)"/>
-      </svg>
-      <span class="skill-name">React</span>
-      <span class="spec-badge spec-badge-amber">Web App</span>
-    </div>
-
-    <div class="skill-tile">
-      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M18 4L31 11.5V24.5L18 32 5 24.5V11.5z" stroke="#111111" stroke-width="1.8" fill="#BEF264"/>
-        <path d="M12 20.5c0 2 1.5 3.5 4 3.5s5-1 5-4c0-2.5-2-3-4-3.5-1.5-.4-2-.8-2-1.8 0-.9.8-1.7 2.2-1.7 1.5 0 2.3.8 2.3 1.8" stroke="#111111" stroke-width="1.8" stroke-linecap="round" fill="none"/>
-      </svg>
-      <span class="skill-name">Node.js</span>
-      <span class="spec-badge spec-badge-cream">Backend</span>
-    </div>
-
-    <div class="skill-tile">
-      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M18 4C12 4 11 7 11 10v3h7v1H8c-3 0-4 2-4 6s1 6 4 6h3v-3c0-3.5 2-4 5-4h5c3 0 5-1.5 5-4v-8c0-2.5-2-3-8-3zm-1 3a1.5 1.5 0 110 3 1.5 1.5 0 010-3z" fill="#3776AB"/>
-        <path d="M18 32c6 0 7-3 7-6v-3h-7v-1h8c3 0 4-2 4-6s-1-6-4-6h-3v3c0 3.5-2 4-5 4h-5c-3 0-5 1.5-5 4v8c0 2.5 2 3 8 3zm1-3a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" fill="#FFD43B"/>
-      </svg>
-      <span class="skill-name">Python</span>
-      <span class="spec-badge spec-badge-amber">AI / CV</span>
-    </div>
-
-    <div class="skill-tile">
-      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M14 24s-2 1.2 1.4 1.6c4 .5 6.1.4 10.5-.4 0 0 1.2.7 2.8 1.3C19.8 30 7.5 26.7 14 24zm-1-4.5s-2.2 1.6 1.2 2c4.3.5 7.7.5 13.5-.7 0 0 .8.8 2.1 1.3C19 25.5 5.6 22.5 13 19.5z" fill="#E76F00"/>
-        <path d="M21.2 4c0 0 4 4-3.8 10.1-6.2 4.9-1.4 7.7 0 10.9-3.6-3.3-6.3-6.2-4.5-8.9C15.5 12.6 22.8 10.6 21.2 4z" fill="#5382A1"/>
-        <path d="M15 31.6s1.5.9 3.8-1.2l-1.5-.1s-2.5 1.3-2.3 1.3zm11.5-4.8s-7.2 1.7-12.6.6c0 0-.7.7.6.8 4.9.6 13.6-.2 13.2-1.7 0 0-.4-.4-1.2.3z" fill="#E76F00"/>
-      </svg>
-      <span class="skill-name">Java</span>
-      <span class="spec-badge spec-badge-lilac">OOP / Sys</span>
-    </div>
-
-    <div class="skill-tile">
-      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M6 9.5L9.5 6h10.2l10.3 10.3v10.2L26.5 30H16.2z" stroke="#111111" stroke-width="1.8" fill="#38BDF8"/>
-        <path d="M9.5 6L6 9.5v0" stroke="#111111" stroke-width="1.8"/>
-        <path d="M26.5 30l3.5-3.5v0" stroke="#111111" stroke-width="1.8"/>
-        <circle cx="18" cy="18" r="3" fill="#111111"/>
-      </svg>
-      <span class="skill-name">Dart</span>
-      <span class="spec-badge spec-badge-lime">Mobile</span>
-    </div>
-
-    <div class="skill-tile">
-      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M6 4l2.4 26L18 33l9.6-3L30 4z" fill="#E44D26" stroke="#111111" stroke-width="1.5"/>
-        <path d="M18 10v16.5l7-2L26.5 10H18z" fill="#F16529"/>
-        <path d="M9.5 14h17M10 20h13.5" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/>
-      </svg>
-      <span class="skill-name">HTML/CSS</span>
-      <span class="spec-badge spec-badge-cream">Standards</span>
-    </div>
-
-    <div class="skill-tile">
-      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 16h12v10a2 2 0 01-2 2H14a2 2 0 01-2-2V16z" stroke="#111111" stroke-width="1.8" fill="#3DDC84"/>
-        <path d="M15 16V14a3 3 0 016 0v2" stroke="#111111" stroke-width="1.8" stroke-linecap="round"/>
-        <circle cx="15.5" cy="20" r="1.2" fill="#111111"/>
-        <circle cx="20.5" cy="20" r="1.2" fill="#111111"/>
-        <path d="M18 24v2M9 19v4M27 19v4" stroke="#111111" stroke-width="1.8" stroke-linecap="round"/>
-        <path d="M14 13L12 10M22 13L24 10" stroke="#111111" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-      <span class="skill-name">Android</span>
-      <span class="spec-badge spec-badge-lime">Native SDK</span>
-    </div>
-  </div>
-</section>
-
-<!-- ── 2. SELECTED PROJECTS SECTION (Warm Alabaster) ── -->
-<section id="projects">
-  <div class="section-header reveal">
-    <div class="section-meta-tag tag-dark">* 02 // PORTFOLIO</div>
-    <h2 class="section-heading">Selected <em>Projects.</em></h2>
-    <p class="section-lead">Full-stack web applications, offline-resilient mobile architectures, and real-time computer vision systems.</p>
-  </div>
-
-  <div class="projects-grid stagger-children">
-    <!-- Jagruti -->
-    <div class="project-card">
-      <div class="project-terminal-bar">
-        <div class="frame-dots">
-          <span class="frame-dot dot-red"></span>
-          <span class="frame-dot dot-yellow"></span>
-          <span class="frame-dot dot-green"></span>
-        </div>
-        <span class="project-terminal-path">~/projects/jagruti-survey</span>
-      </div>
-      <div class="project-card-body">
-        <div class="project-header-row">
-          <div class="project-icon icon-jagruti">JG</div>
-          <div>
-            <h3 class="project-title">Jagruti</h3>
-            <span class="spec-badge spec-badge-lime">Offline-First Mobile</span>
-          </div>
-        </div>
-        <p class="project-desc">
-          Offline-first mobile app for rural survey collection using Flutter and Hive DB with Server Driven UI. Paired with a React admin dashboard featuring a dynamic survey builder, impact analytics, and granular RBAC.
-        </p>
-        <div class="project-tags">
-          <span class="spec-badge spec-badge-cream">Flutter</span>
-          <span class="spec-badge spec-badge-cream">React</span>
-          <span class="spec-badge spec-badge-cream">Node.js</span>
-          <span class="spec-badge spec-badge-cream">Hive DB</span>
-        </div>
-        <div class="project-footer">
-          <span class="spec-badge spec-badge-amber">Deployed System</span>
-          <a href="#contact" class="project-link-btn">
-            Inquire Details
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Sensei Says -->
-    <div class="project-card">
-      <div class="project-terminal-bar">
-        <div class="frame-dots">
-          <span class="frame-dot dot-red"></span>
-          <span class="frame-dot dot-yellow"></span>
-          <span class="frame-dot dot-green"></span>
-        </div>
-        <span class="project-terminal-path">~/projects/sensei-says-ai</span>
-      </div>
-      <div class="project-card-body">
-        <div class="project-header-row">
-          <div class="project-icon icon-sensei">SS</div>
-          <div>
-            <h3 class="project-title">Sensei Says</h3>
-            <span class="spec-badge spec-badge-amber">AI / Computer Vision</span>
-          </div>
-        </div>
-        <p class="project-desc">
-          Real-time AI exercise form checker with live rep counting via camera feed. Uses computer vision to analyse body pose and provide instant corrective feedback during workouts.
-        </p>
-        <div class="project-tags">
-          <span class="spec-badge spec-badge-cream">Python</span>
-          <span class="spec-badge spec-badge-cream">React</span>
-          <span class="spec-badge spec-badge-cream">AI/ML</span>
-          <span class="spec-badge spec-badge-cream">OpenCV</span>
-        </div>
-        <div class="project-footer">
-          <span class="spec-badge spec-badge-lime">Vision Model</span>
-          <a href="#contact" class="project-link-btn">
-            Inquire Details
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Sojara -->
-    <div class="project-card">
-      <div class="project-terminal-bar">
-        <div class="frame-dots">
-          <span class="frame-dot dot-red"></span>
-          <span class="frame-dot dot-yellow"></span>
-          <span class="frame-dot dot-green"></span>
-        </div>
-        <span class="project-terminal-path">~/projects/sojara-records</span>
-      </div>
-      <div class="project-card-body">
-        <div class="project-header-row">
-          <div class="project-icon icon-sojara">SJ</div>
-          <div>
-            <h3 class="project-title">Sojara</h3>
-            <span class="spec-badge spec-badge-lilac">Enterprise Management</span>
-          </div>
-        </div>
-        <p class="project-desc">
-          Digital records management system built for an NGO to replace paper-based workflows. Enables structured data entry, search, and reporting for field operations.
-        </p>
-        <div class="project-tags">
-          <span class="spec-badge spec-badge-cream">React</span>
-          <span class="spec-badge spec-badge-cream">Node.js</span>
-        </div>
-        <div class="project-footer">
-          <span class="spec-badge spec-badge-cream">NGO Tool</span>
-          <a href="#contact" class="project-link-btn">
-            Inquire Details
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- PawPal -->
-    <div class="project-card">
-      <div class="project-terminal-bar">
-        <div class="frame-dots">
-          <span class="frame-dot dot-red"></span>
-          <span class="frame-dot dot-yellow"></span>
-          <span class="frame-dot dot-green"></span>
-        </div>
-        <span class="project-terminal-path">~/projects/pawpal-health</span>
-      </div>
-      <div class="project-card-body">
-        <div class="project-header-row">
-          <div class="project-icon icon-pawpal">PP</div>
-          <div>
-            <h3 class="project-title">PawPal</h3>
-            <span class="spec-badge spec-badge-lime">Mobile Health</span>
-          </div>
-        </div>
-        <p class="project-desc">
-          Pet health management mobile app with vaccination reminders, vet appointment scheduling, and a health log to track wellness metrics for pet owners.
-        </p>
-        <div class="project-tags">
-          <span class="spec-badge spec-badge-cream">Flutter</span>
-          <span class="spec-badge spec-badge-cream">Dart</span>
-        </div>
-        <div class="project-footer">
-          <span class="spec-badge spec-badge-amber">iOS &amp; Android</span>
-          <a href="#contact" class="project-link-btn">
-            Inquire Details
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── 3. WORK HISTORY & EXPERIENCE (Muted Stone-Lilac) ── -->
+<!-- ── 3. WORK HISTORY & EXPERIENCE (Muted Stone-Lilac, 2-Column Split) ── -->
 <section id="experience">
-  <div class="section-header reveal">
-    <div class="section-meta-tag tag-dark">* 03 // TRACK RECORD</div>
-    <h2 class="section-heading">Engineering <em>Experience.</em></h2>
-    <p class="section-lead">Industry internships in offline architecture, secure banking integrations, and institutional outreach.</p>
-  </div>
-
-  <div class="timeline reveal">
-    <!-- Internship 1 -->
-    <div class="timeline-card">
-      <div class="tl-header">
-        <div>
-          <h3 class="tl-role-title">Software Development Intern</h3>
-          <div class="tl-company">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
-            Jagruti · Bengaluru, Karnataka
-          </div>
+  <div class="section-container">
+    <div class="experience-split">
+      <!-- Left 35% Sticky Sidebar -->
+      <div class="experience-sidebar reveal">
+        <div class="section-meta-tag tag-dark">* 03 // TRACK RECORD</div>
+        <h2 class="section-heading">Engineering <em>Experience.</em></h2>
+        <p class="section-lead">Industry internships in offline-first architecture, secure banking integrations, and institutional digital education.</p>
+        
+        <div class="experience-sidebar-badges">
+          <span class="spec-badge spec-badge-amber">3 Internships</span>
+          <span class="spec-badge spec-badge-lime">Production Shipping</span>
+          <span class="spec-badge spec-badge-cream">Bengaluru, IN</span>
         </div>
-        <span class="spec-badge spec-badge-amber">Jan 2026 — Mar 2026</span>
       </div>
-      <ul class="tl-points">
-        <li>Engineered an offline-first mobile app using Flutter and Hive DB with Server Driven UI for rural survey collection.</li>
-        <li>Architected a React.js admin dashboard with dynamic survey builder, impact analytics, and granular Role-Based Access Control.</li>
-      </ul>
-    </div>
 
-    <!-- Internship 2 -->
-    <div class="timeline-card">
-      <div class="tl-header">
-        <div>
-          <h3 class="tl-role-title">Backend Intern</h3>
-          <div class="tl-company">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
-            Admission Cell, Christ University · Bengaluru
+      <!-- Right 65% Full-Width Timeline Cards -->
+      <div class="timeline reveal">
+        <!-- Internship 1 -->
+        <div class="timeline-card">
+          <div class="tl-header">
+            <div>
+              <h3 class="tl-role-title">Software Development Intern</h3>
+              <div class="tl-company">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+                Jagruti · Bengaluru, Karnataka
+              </div>
+            </div>
+            <span class="spec-badge spec-badge-amber">Jan 2026 — Mar 2026</span>
           </div>
+          <ul class="tl-points">
+            <li>Engineered an offline-first mobile app using Flutter and Hive DB with Server Driven UI for rural survey collection.</li>
+            <li>Architected a React.js admin dashboard with dynamic survey builder, impact analytics, and granular Role-Based Access Control.</li>
+          </ul>
         </div>
-        <span class="spec-badge spec-badge-cream">Apr 2025 — May 2025</span>
-      </div>
-      <ul class="tl-points">
-        <li>Implemented Aadhaar verification and virtual signature systems in the university's admission workflow.</li>
-        <li>Built secure data transmission between the admission portal and South Indian Bank's database.</li>
-      </ul>
-    </div>
 
-    <!-- Internship 3 -->
-    <div class="timeline-card">
-      <div class="tl-header">
-        <div>
-          <h3 class="tl-role-title">Intern</h3>
-          <div class="tl-company">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
-            District Child Protection Unit · Bengaluru
+        <!-- Internship 2 -->
+        <div class="timeline-card">
+          <div class="tl-header">
+            <div>
+              <h3 class="tl-role-title">Backend Intern</h3>
+              <div class="tl-company">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+                Admission Cell, Christ University · Bengaluru
+              </div>
+            </div>
+            <span class="spec-badge spec-badge-cream">Apr 2025 — May 2025</span>
           </div>
+          <ul class="tl-points">
+            <li>Implemented Aadhaar verification and virtual signature systems in the university's admission workflow.</li>
+            <li>Built secure data transmission between the admission portal and South Indian Bank's database.</li>
+          </ul>
         </div>
-        <span class="spec-badge spec-badge-lime">Mar 2024 — May 2024</span>
+
+        <!-- Internship 3 -->
+        <div class="timeline-card">
+          <div class="tl-header">
+            <div>
+              <h3 class="tl-role-title">Intern</h3>
+              <div class="tl-company">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+                District Child Protection Unit · Bengaluru
+              </div>
+            </div>
+            <span class="spec-badge spec-badge-lime">Mar 2024 — May 2024</span>
+          </div>
+          <ul class="tl-points">
+            <li>Conducted digital literacy sessions for children, teaching PowerPoint, Canva and Excel to 30+ students.</li>
+            <li>Collaborated with DCPU staff to integrate digital education into ongoing child development programs.</li>
+          </ul>
+        </div>
       </div>
-      <ul class="tl-points">
-        <li>Conducted digital literacy sessions for children, teaching PowerPoint, Canva and Excel to 30+ students.</li>
-        <li>Collaborated with DCPU staff to integrate digital education into ongoing child development programs.</li>
-      </ul>
     </div>
   </div>
 </section>
 
-<!-- ── 4. ABOUT & LEADERSHIP (Crisp White) ── -->
+<!-- ── 4. ABOUT & LEADERSHIP (Full 1240px Card + 3-Column Honors Grid) ── -->
 <section id="about">
-  <div class="section-header reveal">
-    <div class="section-meta-tag tag-dark">* 04 // BACKGROUND</div>
-    <h2 class="section-heading">About <em>Mahi.</em></h2>
-  </div>
-
-  <div class="about-card reveal">
-    <div class="avatar-tactile">
-      <span class="avatar-initials">MS</span>
-      <span class="avatar-tag">DEV // 2026</span>
+  <div class="section-container">
+    <div class="section-header reveal">
+      <div class="section-meta-tag tag-dark">* 04 // BACKGROUND</div>
+      <h2 class="section-heading">About <em>Mahi.</em></h2>
     </div>
 
-    <div class="about-body">
-      <h3 class="about-name">Mahi <em>Sreedhar</em></h3>
-      <p class="about-text">
-        I graduated with a BSc in Computer Science &amp; Mathematics from Christ University, Bengaluru (GPA 3.73). I build mobile-first and full-stack applications with a focus on real-world impact — from offline surveys for rural data collection to AI-powered fitness tools.
-      </p>
-      <p class="about-text">
-        Beyond code, I lead digital outreach as VP Public Relations at JCI Bangalore Silicon City and served as Company Sergeant Major in the NCC — experiences that sharpened my communication, leadership, and team-building instincts.
-      </p>
-
-      <div class="about-meta-row">
-        <span class="spec-badge spec-badge-cream">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Bengaluru, Karnataka
-        </span>
-        <span class="spec-badge spec-badge-lime">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
-          BSc CS &amp; Maths, Christ University (2026)
-        </span>
-        <span class="spec-badge spec-badge-amber">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
-          Open to Opportunities
-        </span>
+    <!-- Full-Width About Card -->
+    <div class="about-card reveal">
+      <div class="avatar-tactile">
+        <span class="avatar-initials">MS</span>
+        <span class="avatar-tag">DEV // 2026</span>
       </div>
 
-      <div class="social-links">
-        <a href="https://github.com/mahisreedhar" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.461-1.11-1.461-.907-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
-        </a>
-        <a href="https://linkedin.com/in/mahisreedhar" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        </a>
-        <a href="mailto:mahisreedhar22@gmail.com" class="social-link" aria-label="Email">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        </a>
+      <div class="about-body">
+        <h3 class="about-name">Mahi <em>Sreedhar</em></h3>
+        <p class="about-text">
+          I graduated with a BSc in Computer Science &amp; Mathematics from Christ University, Bengaluru (GPA 3.73). I build mobile-first and full-stack applications with a focus on real-world impact — from offline surveys for rural data collection to AI-powered fitness tools.
+        </p>
+        <p class="about-text">
+          Beyond code, I lead digital outreach as VP Public Relations at JCI Bangalore Silicon City and served as Company Sergeant Major in the NCC — experiences that sharpened my communication, leadership, and team-building instincts.
+        </p>
+
+        <div class="about-meta-row">
+          <span class="spec-badge spec-badge-cream">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Bengaluru, Karnataka
+          </span>
+          <span class="spec-badge spec-badge-lime">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+            BSc CS &amp; Maths, Christ University (2026)
+          </span>
+          <span class="spec-badge spec-badge-amber">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+            Open to Opportunities
+          </span>
+        </div>
+
+        <div class="social-links">
+          <a href="https://github.com/mahisreedhar" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.461-1.11-1.461-.907-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/mahisreedhar" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="mailto:mahisreedhar22@gmail.com" class="social-link" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Leadership & Awards -->
-  <div class="reveal">
-    <div class="section-meta-tag tag-dark" style="margin-bottom: 1.3rem;">* HONORS &amp; LEADERSHIP</div>
-    <div class="awards-grid stagger-children">
-      <div class="award-card">
-        <span class="spec-badge spec-badge-amber">Leadership</span>
-        <div class="award-title">Vice President, Public Relations</div>
-        <div class="award-sub">JCI Bangalore Silicon City · 2025 – Present</div>
-        <div class="award-detail">Leading digital outreach and event promotion to enhance chapter visibility.</div>
-      </div>
+    <!-- Leadership & Awards (Equal 3-Column Grid) -->
+    <div class="reveal">
+      <div class="section-meta-tag tag-dark" style="margin-bottom: 1.4rem;">* HONORS &amp; LEADERSHIP</div>
+      <div class="awards-grid stagger-children">
+        <div class="award-card">
+          <span class="spec-badge spec-badge-amber">Leadership</span>
+          <div class="award-title">Vice President, Public Relations</div>
+          <div class="award-sub">JCI Bangalore Silicon City · 2025 – Present</div>
+          <div class="award-detail">Leading digital outreach and event promotion to enhance chapter visibility.</div>
+        </div>
 
-      <div class="award-card">
-        <span class="spec-badge spec-badge-lime">Command</span>
-        <div class="award-title">Company Sergeant Major</div>
-        <div class="award-sub">NCC – 9 Karnataka Battalion · 2021 – 2024</div>
-        <div class="award-detail">Mentored junior cadets; completed three years developing discipline, leadership, and teamwork.</div>
-      </div>
+        <div class="award-card">
+          <span class="spec-badge spec-badge-lime">Command</span>
+          <div class="award-title">Company Sergeant Major</div>
+          <div class="award-sub">NCC – 9 Karnataka Battalion · 2021 – 2024</div>
+          <div class="award-detail">Mentored junior cadets; completed three years developing discipline, leadership, and teamwork.</div>
+        </div>
 
-      <div class="award-card">
-        <span class="spec-badge spec-badge-cream">Honor</span>
-        <div class="award-title">Vice Chancellor's Commendation</div>
-        <div class="award-sub">Christ University · 2023</div>
-        <div class="award-detail">Recognised for outstanding contribution towards the university.</div>
+        <div class="award-card">
+          <span class="spec-badge spec-badge-cream">Honor</span>
+          <div class="award-title">Vice Chancellor's Commendation</div>
+          <div class="award-sub">Christ University · 2023</div>
+          <div class="award-detail">Recognised for outstanding contribution towards the university.</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── 5. CONTACT & BOOKEND FOOTER (Deep Forest Green) ── -->
+<!-- ── 5. CONTACT & BOOKEND FOOTER (Deep Forest Green, Balanced 2-Column Split) ── -->
 <section id="contact">
-  <div class="contact-wrapper reveal">
-    <div class="section-meta-tag tag-light">* 05 // REACH OUT</div>
-    <h2 class="section-heading" style="color: var(--c-cream);">Get in <em>Touch.</em></h2>
-    <p class="section-lead" style="color: rgba(248, 247, 244, 0.82);">
-      I'm always open to new opportunities, collaborations, or just a good conversation about tech. Drop me a line — I typically reply within a day.
-    </p>
+  <div class="section-container">
+    <div class="contact-split reveal">
+      <div class="contact-left">
+        <div class="section-meta-tag tag-light">* 05 // REACH OUT</div>
+        <h2 class="section-heading" style="color: var(--c-cream);">Get in <em>Touch.</em></h2>
+        <p class="section-lead" style="color: rgba(248, 247, 244, 0.85); margin-bottom: 2rem;">
+          I'm always open to new opportunities, collaborations, or just a good conversation about tech. Drop me a line — I typically reply within a day.
+        </p>
+        <a href="mailto:mahisreedhar22@gmail.com" class="btn btn-primary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Say Hello
+        </a>
+      </div>
 
-    <ul class="contact-card-list">
-      <li>
-        <a href="mailto:mahisreedhar22@gmail.com" class="contact-item">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          mahisreedhar22@gmail.com
-        </a>
-      </li>
-      <li>
-        <a href="https://github.com/mahisreedhar" target="_blank" rel="noopener noreferrer" class="contact-item">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.461-1.11-1.461-.907-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
-          github.com/mahisreedhar
-        </a>
-      </li>
-      <li>
-        <a href="https://linkedin.com/in/mahisreedhar" target="_blank" rel="noopener noreferrer" class="contact-item">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          linkedin.com/in/mahisreedhar
-        </a>
-      </li>
-    </ul>
-
-    <a href="mailto:mahisreedhar22@gmail.com" class="btn btn-primary">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      Say Hello
-    </a>
+      <div class="contact-right">
+        <ul class="contact-card-list">
+          <li>
+            <a href="mailto:mahisreedhar22@gmail.com" class="contact-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              mahisreedhar22@gmail.com
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/mahisreedhar" target="_blank" rel="noopener noreferrer" class="contact-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.461-1.11-1.461-.907-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+              github.com/mahisreedhar
+            </a>
+          </li>
+          <li>
+            <a href="https://linkedin.com/in/mahisreedhar" target="_blank" rel="noopener noreferrer" class="contact-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              linkedin.com/in/mahisreedhar
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ── FOOTER ── -->
 <footer>
-  <p class="footer-logo"><span class="bracket">&lt;</span> Mahi Sreedhar <span class="bracket">/&gt;</span></p>
-  <p>Built with precision — No frameworks, pure HTML/CSS/JS</p>
-  <p>© 2026 Mahi Sreedhar</p>
+  <div class="footer-container">
+    <p class="footer-logo"><span class="bracket">&lt;</span> Mahi Sreedhar <span class="bracket">/&gt;</span></p>
+    <p>Built with precision — No frameworks, pure HTML/CSS/JS</p>
+    <p>© 2026 Mahi Sreedhar</p>
+  </div>
 </footer>
 
 <!-- ── VANILLA JAVASCRIPT BEHAVIOR ── -->
