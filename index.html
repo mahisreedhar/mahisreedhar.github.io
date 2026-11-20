@@ -1427,6 +1427,145 @@ footer {
     flex-wrap: wrap;
   }
 }
+
+/* ── ARCHITECTURE DIAGRAM MODAL ── */
+.project-footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+.project-arch-btn {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--c-ink);
+  background: var(--c-forest-tint);
+  border: var(--border-mid);
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  box-shadow: 2px 2px 0px var(--c-ink);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+.project-arch-btn:hover {
+  transform: translate(-1.5px, -1.5px);
+  box-shadow: 4px 4px 0px var(--c-ink);
+  background: var(--c-amber);
+}
+
+.arch-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 37, 32, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+.arch-modal-backdrop.open {
+  display: flex;
+}
+.arch-modal-dialog {
+  width: 100%;
+  max-width: 960px;
+  max-height: 90vh;
+  background: var(--c-white);
+  border: var(--border-thick);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.arch-modal-bar {
+  background: var(--c-stone);
+  border-bottom: var(--border-thick);
+  padding: 0.75rem 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.arch-modal-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.arch-modal-close {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  background: var(--c-white);
+  color: var(--c-ink);
+  border: var(--border-mid);
+  border-radius: 5px;
+  box-shadow: 2px 2px 0px var(--c-ink);
+  padding: 0.25rem 0.65rem;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.12s ease;
+}
+.arch-modal-close:hover {
+  background: var(--c-amber);
+  transform: translate(-1px, -1px);
+}
+.arch-modal-body {
+  padding: 1.5rem;
+  overflow-y: auto;
+  background: var(--c-alabaster);
+  background-image: var(--grid-dark-dots);
+  background-size: var(--grid-size);
+}
+.arch-diagram-frame {
+  background: var(--c-white);
+  border: var(--border-thick);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 1rem;
+  overflow-x: auto;
+}
+.arch-diagram-frame svg {
+  width: 100%;
+  min-width: 680px;
+  height: auto;
+  display: block;
+}
+.arch-modal-notes {
+  margin-top: 1.1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.9rem;
+}
+.arch-note-card {
+  background: var(--c-white);
+  border: var(--border-mid);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+}
+.arch-note-card h4 {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--c-forest);
+  margin-bottom: 0.35rem;
+}
+.arch-note-card p {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--c-ink-soft);
+}
+@media (max-width: 768px) {
+  .arch-modal-notes {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
 </head>
 <body>
@@ -1676,10 +1815,16 @@ footer {
           </div>
           <div class="project-footer">
             <span class="spec-badge spec-badge-amber">Deployed System</span>
-            <a href="#contact" class="project-link-btn">
-              Inquire Details
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-            </a>
+            <div class="project-footer-actions">
+              <button type="button" class="project-arch-btn" onclick="openArchModal()">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="8.5" y="14" width="7" height="7" rx="1"/><path d="M6.5 10v2h11v-2M12 12v2"/></svg>
+                Architecture
+              </button>
+              <a href="#contact" class="project-link-btn">
+                Inquire Details
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -2139,6 +2284,143 @@ document.querySelectorAll('.nav-links a').forEach(function(a) {
 
   reveals.forEach(function(el) { observer.observe(el); });
 })();
+
+// ── JAGRUTI ARCHITECTURE MODAL ──
+function openArchModal() {
+  var modal = document.getElementById('arch-modal');
+  if (!modal) return;
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeArchModal() {
+  var modal = document.getElementById('arch-modal');
+  if (!modal) return;
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeArchModal();
+});
 </script>
+
+<div id="arch-modal" class="arch-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="arch-modal-title" onclick="if (event.target === this) closeArchModal();">
+  <div class="arch-modal-dialog">
+    <div class="arch-modal-bar">
+      <div class="arch-modal-bar-left">
+        <div class="frame-dots">
+          <span class="frame-dot dot-red"></span>
+          <span class="frame-dot dot-yellow"></span>
+          <span class="frame-dot dot-green"></span>
+        </div>
+        <span id="arch-modal-title" class="project-terminal-path">~/projects/jagruti-survey/architecture.svg</span>
+      </div>
+      <button type="button" class="arch-modal-close" onclick="closeArchModal()" aria-label="Close architecture diagram">ESC ×</button>
+    </div>
+
+    <div class="arch-modal-body">
+      <div class="arch-diagram-frame">
+        <svg viewBox="0 0 880 390" xmlns="http://www.w3.org/2000/svg" font-family="'Plus Jakarta Sans', sans-serif">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#111111"/>
+            </marker>
+          </defs>
+
+          <!-- Column 1: Flutter Mobile App -->
+          <rect x="16" y="20" width="244" height="350" rx="10" fill="#F8F7F4" stroke="#111111" stroke-width="2"/>
+          <text x="138" y="46" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11.5" font-weight="700" fill="#123C34">FLUTTER MOBILE APP</text>
+
+          <rect x="32" y="64" width="212" height="72" rx="7" fill="#FFFFFF" stroke="#111111" stroke-width="1.8"/>
+          <text x="138" y="88" text-anchor="middle" font-size="12.5" font-weight="800" fill="#111111">Server-Driven UI Engine</text>
+          <text x="138" y="106" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="#333333">Dynamic questions, options</text>
+          <text x="138" y="121" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="#333333">&amp; conditional survey rules</text>
+
+          <rect x="32" y="154" width="212" height="92" rx="7" fill="#E6EFEA" stroke="#111111" stroke-width="1.8"/>
+          <text x="138" y="177" text-anchor="middle" font-size="12.5" font-weight="800" fill="#111111">Hive DB Local Boxes</text>
+          <text x="138" y="196" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#333333">Schemas: questions_cache</text>
+          <text x="138" y="211" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#333333">Data: children_local, visits_local</text>
+          <text x="138" y="226" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#123C34" font-weight="700">Queue: sync_queue</text>
+
+          <rect x="32" y="264" width="212" height="86" rx="7" fill="#FBBF24" stroke="#111111" stroke-width="1.8"/>
+          <text x="138" y="287" text-anchor="middle" font-size="12.5" font-weight="800" fill="#111111">SyncManager</text>
+          <text x="138" y="306" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#111111">connectivity_plus listener</text>
+          <text x="138" y="321" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#111111">Drains sync_queue sequentially</text>
+          <text x="138" y="336" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#111111">in relational order</text>
+
+          <!-- Column 2: Custom Backend & Data -->
+          <rect x="324" y="42" width="232" height="118" rx="10" fill="#123C34" stroke="#111111" stroke-width="2"/>
+          <text x="440" y="69" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#FBBF24">CUSTOM BACKEND</text>
+          <text x="440" y="92" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">Node.js / Express API</text>
+          <text x="440" y="114" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="#E6EFEA">Session Auth &amp; RBAC Checks</text>
+          <text x="440" y="131" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="#E6EFEA">Survey Schemas &amp; Sync APIs</text>
+
+          <rect x="324" y="198" width="232" height="78" rx="8" fill="#FFFFFF" stroke="#111111" stroke-width="2"/>
+          <text x="440" y="224" text-anchor="middle" font-size="13.5" font-weight="800" fill="#111111">PostgreSQL</text>
+          <text x="440" y="244" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#333333">Survey definitions, child records,</text>
+          <text x="440" y="259" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#333333">visits &amp; RBAC permission keys</text>
+
+          <rect x="324" y="298" width="232" height="72" rx="8" fill="#E6EFEA" stroke="#111111" stroke-width="2"/>
+          <text x="440" y="324" text-anchor="middle" font-size="13" font-weight="800" fill="#111111">Cloudflare S3 Bucket</text>
+          <text x="440" y="344" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#333333">Field survey photos &amp; media</text>
+
+          <!-- Column 3: React Admin Dashboard -->
+          <rect x="620" y="20" width="244" height="350" rx="10" fill="#F8F7F4" stroke="#111111" stroke-width="2"/>
+          <text x="742" y="46" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11.5" font-weight="700" fill="#123C34">REACT ADMIN DASHBOARD</text>
+
+          <rect x="636" y="64" width="212" height="82" rx="7" fill="#FFFFFF" stroke="#111111" stroke-width="1.8"/>
+          <text x="742" y="90" text-anchor="middle" font-size="12.5" font-weight="800" fill="#111111">Dynamic Survey Builder</text>
+          <text x="742" y="110" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="#333333">Creates &amp; publishes JSON</text>
+          <text x="742" y="125" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="#333333">schemas for mobile SDUI</text>
+
+          <rect x="636" y="164" width="212" height="82" rx="7" fill="#E6EFEA" stroke="#111111" stroke-width="1.8"/>
+          <text x="742" y="190" text-anchor="middle" font-size="12.5" font-weight="800" fill="#111111">Impact Analytics</text>
+          <text x="742" y="210" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="#333333">Field visit tracking, exports</text>
+          <text x="742" y="225" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="#333333">&amp; program metrics</text>
+
+          <rect x="636" y="264" width="212" height="86" rx="7" fill="#FFFFFF" stroke="#111111" stroke-width="1.8"/>
+          <text x="742" y="290" text-anchor="middle" font-size="12.5" font-weight="800" fill="#111111">Granular RBAC</text>
+          <text x="742" y="310" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#333333">Global &amp; project permission</text>
+          <text x="742" y="325" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#333333">keys via ProtectedRoute</text>
+
+          <!-- Connectors & Labels -->
+          <!-- Node API -> Mobile (Pull SDUI) -->
+          <line x1="322" y1="84" x2="263" y2="84" stroke="#111111" stroke-width="1.8" marker-end="url(#arrow)"/>
+          <text x="292" y="76" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#111111">SDUI JSON</text>
+
+          <!-- Mobile SyncManager -> Node API -->
+          <path d="M 244 295 L 292 295 L 292 126 L 321 126" fill="none" stroke="#111111" stroke-width="1.8" marker-end="url(#arrow)"/>
+          <text x="292" y="212" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#123C34" transform="rotate(-90 292 212)">Sequential Sync</text>
+
+          <!-- Mobile -> Cloudflare S3 -->
+          <line x1="260" y1="334" x2="321" y2="334" stroke="#111111" stroke-width="1.8" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+          <text x="290" y="350" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#333333">Media</text>
+
+          <!-- Node API <-> PostgreSQL -->
+          <line x1="440" y1="162" x2="440" y2="195" stroke="#111111" stroke-width="1.8" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+          <text x="466" y="183" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#111111">SQL</text>
+
+          <!-- React Admin <-> Node API -->
+          <line x1="618" y1="104" x2="559" y2="104" stroke="#111111" stroke-width="1.8" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+          <text x="588" y="94" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#111111">REST</text>
+        </svg>
+      </div>
+
+      <div class="arch-modal-notes">
+        <div class="arch-note-card">
+          <h4>01 // Offline-First Mobile</h4>
+          <p>Survey schemas preload after login into Hive caches; drafts, child registrations, and visits write locally first.</p>
+        </div>
+        <div class="arch-note-card">
+          <h4>02 // Sequential Sync</h4>
+          <p><code>SyncManager</code> listens to connectivity changes and drains <code>sync_queue</code> in relational order to PostgreSQL.</p>
+        </div>
+        <div class="arch-note-card">
+          <h4>03 // Fine-Grained RBAC</h4>
+          <p>Admin routes and actions resolve global and project-scoped permission keys via session auth.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
