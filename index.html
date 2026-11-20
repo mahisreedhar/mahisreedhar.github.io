@@ -1601,7 +1601,6 @@ footer {
       <li><a href="#experience">Experience</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="Mahi_Sreedhar_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
     </ul>
 
     <a href="mailto:mahisreedhar22@gmail.com" class="nav-cta">Get in touch</a>
@@ -2191,10 +2190,18 @@ footer {
   var sections = document.querySelectorAll('section[id]');
   var links = document.querySelectorAll('.nav-links a');
 
-  window.addEventListener('scroll', function() {
+  function updateActiveNav() {
     nav.classList.toggle('scrolled', window.scrollY > 30);
 
-    var scrollY = window.scrollY + 120;
+    var atBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 40);
+    if (atBottom) {
+      links.forEach(function(a) { a.classList.remove('active'); });
+      var contactLink = document.querySelector('.nav-links a[href="#contact"]');
+      if (contactLink) contactLink.classList.add('active');
+      return;
+    }
+
+    var scrollY = window.scrollY + Math.min(220, window.innerHeight * 0.35);
     sections.forEach(function(sec) {
       if (scrollY >= sec.offsetTop && scrollY < sec.offsetTop + sec.offsetHeight) {
         links.forEach(function(a) { a.classList.remove('active'); });
@@ -2202,7 +2209,10 @@ footer {
         if (match) match.classList.add('active');
       }
     });
-  }, { passive: true });
+  }
+
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  updateActiveNav();
 })();
 
 // ── HAMBURGER MOBILE NAVIGATION ──
