@@ -16,23 +16,21 @@
 }
 
 :root {
-  /* Color-Blocked Section Palettes */
+  /* 60% Neutral Surfaces & 30% Forest Brand */
   --c-forest: #123C34;
   --c-forest-dark: #0b2520;
+  --c-forest-tint: #E6EFEA;
   --c-alabaster: #F5F3EE;
-  --c-lilac: #E5E1EE;
+  --c-stone: #EAE6DE;
+  --c-cream: #F8F7F4;
   --c-white: #FFFFFF;
   --c-ink: #111111;
   --c-ink-soft: #333333;
   --c-ink-muted: #666666;
 
-  /* Accent Signals */
+  /* 10% Primary Accent */
   --c-amber: #FBBF24;
   --c-amber-hover: #F59E0B;
-  --c-lime: #BEF264;
-  --c-cream: #F8F7F4;
-  --c-rose: #FB7185;
-  --c-sky: #38BDF8;
 
   /* Typography Pairing */
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -125,7 +123,7 @@ body {
   color: var(--c-ink);
 }
 .spec-badge-lime {
-  background: var(--c-lime);
+  background: var(--c-forest-tint);
   color: var(--c-ink);
 }
 .spec-badge-cream {
@@ -133,7 +131,7 @@ body {
   color: var(--c-ink);
 }
 .spec-badge-lilac {
-  background: var(--c-lilac);
+  background: var(--c-stone);
   color: var(--c-ink);
 }
 .spec-badge-white {
@@ -406,10 +404,10 @@ section {
 .hero-eyebrow-dot {
   width: 9px;
   height: 9px;
-  background: var(--c-lime);
+  background: var(--c-amber);
   border-radius: 50%;
   border: 1px solid var(--c-ink);
-  box-shadow: 0 0 6px rgba(190, 242, 100, 0.9);
+  box-shadow: 0 0 6px rgba(251, 191, 36, 0.75);
 }
 
 .hero-name {
@@ -421,11 +419,8 @@ section {
   margin-bottom: 1.35rem;
 }
 .hero-name em {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 400;
+  font-style: normal;
   color: var(--c-amber);
-  letter-spacing: -0.01em;
 }
 
 /* Typing Role Badge (Scaled Up) */
@@ -433,7 +428,7 @@ section {
   display: inline-flex;
   align-items: center;
   gap: 0.8rem;
-  background: var(--c-lime);
+  background: var(--c-cream);
   color: var(--c-ink);
   border: var(--border-thick);
   border-radius: 6px;
@@ -447,7 +442,7 @@ section {
   font-size: 0.72rem;
   font-weight: 800;
   background: var(--c-ink);
-  color: var(--c-lime);
+  color: var(--c-amber);
   padding: 3px 7px;
   border-radius: 3px;
   letter-spacing: 0.08em;
@@ -603,7 +598,7 @@ section {
   font-family: var(--font-mono);
   font-size: 0.68rem;
   font-weight: 700;
-  background: var(--c-lime);
+  background: var(--c-forest-tint);
   border: 1px solid var(--c-ink);
   padding: 0.15rem 0.45rem;
   border-radius: 3px;
@@ -674,7 +669,7 @@ section {
 .badge-stat-3 {
   bottom: -78px;
   left: -32px;
-  background: var(--c-lime);
+  background: var(--c-cream);
 }
 
 .cluster-badge .stat-icon {
@@ -713,7 +708,7 @@ section {
 
 /* ── SECTION 1: SKILLS & PROFICIENCIES (Full 1240px 4-col x 2-row) ── */
 #skills {
-  background-color: var(--c-lilac);
+  background-color: var(--c-stone);
   background-image: var(--grid-dark-dots);
   background-size: var(--grid-size);
   color: var(--c-ink);
@@ -838,10 +833,10 @@ section {
   color: var(--c-ink);
   flex-shrink: 0;
 }
-.icon-jagruti { background: var(--c-lime); }
-.icon-sensei { background: var(--c-amber); }
-.icon-sochara { background: var(--c-lilac); }
-.icon-pawpal { background: var(--c-sky); }
+.icon-jagruti { background: var(--c-forest-tint); }
+.icon-sensei { background: var(--c-forest-tint); }
+.icon-sochara { background: var(--c-forest-tint); }
+.icon-pawpal { background: var(--c-forest-tint); }
 
 .project-title {
   font-size: 1.45rem;
@@ -901,7 +896,7 @@ section {
 
 /* ── SECTION 3: ENGINEERING EXPERIENCE (2-Column Editorial Split) ── */
 #experience {
-  background-color: var(--c-lilac);
+  background-color: var(--c-stone);
   background-image: var(--grid-dark-dots);
   background-size: var(--grid-size);
   color: var(--c-ink);
