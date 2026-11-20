@@ -273,6 +273,9 @@ nav.scrolled {
 .nav-brand .bracket {
   color: rgba(248, 247, 244, 0.55);
   font-weight: 800;
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "calt" 0;
+  letter-spacing: 0.06em;
 }
 
 .nav-links {
@@ -1243,6 +1246,9 @@ footer {
 }
 .footer-logo span {
   color: var(--c-amber);
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "calt" 0;
+  letter-spacing: 0.06em;
 }
 
 /* ── SCROLL REVEAL UTILITIES ── */
@@ -1454,22 +1460,23 @@ footer {
   font-family: var(--font-mono);
   font-size: 0.78rem;
   font-weight: 700;
-  color: var(--c-ink);
-  background: var(--c-forest-tint);
+  color: var(--c-cream);
+  background: var(--c-forest);
   border: var(--border-mid);
-  padding: 0.4rem 0.85rem;
+  padding: 0.4rem 0.9rem;
   border-radius: 6px;
   box-shadow: 2px 2px 0px var(--c-ink);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  gap: 0.45rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
 }
 .project-arch-btn:hover {
   transform: translate(-1.5px, -1.5px);
   box-shadow: 4px 4px 0px var(--c-ink);
   background: var(--c-amber);
+  color: var(--c-ink);
 }
 
 .arch-modal-backdrop {
@@ -1830,9 +1837,10 @@ footer {
           <div class="project-footer">
             <span class="spec-badge spec-badge-amber">Deployed System</span>
             <div class="project-footer-actions">
-              <button type="button" class="project-arch-btn" onclick="openArchModal()">
+              <button type="button" class="project-arch-btn" onclick="openArchModal()" title="Open Jagruti system architecture diagram">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="8.5" y="14" width="7" height="7" rx="1"/><path d="M6.5 10v2h11v-2M12 12v2"/></svg>
-                Architecture
+                View Diagram
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
               </button>
               <a href="#contact" class="project-link-btn">
                 Inquire Details
@@ -1858,7 +1866,7 @@ footer {
             <div class="project-icon icon-sensei">SS</div>
             <div>
               <h3 class="project-title">Sensei Says</h3>
-              <span class="spec-badge spec-badge-amber">AI / Computer Vision</span>
+              <span class="spec-badge spec-badge-lime">AI / Computer Vision</span>
             </div>
           </div>
           <p class="project-desc">
@@ -1871,7 +1879,7 @@ footer {
             <span class="spec-badge spec-badge-cream">OpenCV</span>
           </div>
           <div class="project-footer">
-            <span class="spec-badge spec-badge-lime">Vision Model</span>
+            <span class="spec-badge spec-badge-amber">Vision Model</span>
             <a href="#contact" class="project-link-btn">
               Inquire Details
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
